@@ -19,6 +19,9 @@ dist/
 repos/le-wm/
 repos/UKy-Campus-LIDAR/
 
+# --- local-only engineering briefs (not part of the public release) ---
+briefs/
+
 # --- data: episode MCAPs are large + regenerable. Only the six figure-source
 #     MCAPs are tracked (force-added; see README). All .signals.txt / .outcome
 #     text sidecars are kept. Trained weights are not redistributed. ---
