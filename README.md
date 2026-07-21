@@ -13,8 +13,9 @@ Trained weights are not redistributed; produce them from source. Apache-2.0.
 
 A turret that is visible but not yet aimed is not yet dangerous. A turret about to
 aim is dangerous before any single frame shows it. A detector reads one frame and
-asks whether there is a threat now. A world model rolls its latent forward and asks
-whether one is coming, earlier, from the same pixels.
+asks whether there is a threat now based on the latent representation of that frame. 
+A world model thinks ahead in latent space, and asks whether it will be in danger in
+the future if it follows it's current planned course.
 
 Two results follow.
 
