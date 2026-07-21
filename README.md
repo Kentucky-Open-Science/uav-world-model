@@ -21,24 +21,23 @@ Two results follow.
 
 ## Result 1 — the world model predicts ahead of detection
 
-Phantom mode: the drone flies oblivious and head-on at the turret so the danger it
-imagines actually materializes. Both signals rise. The WM leads.
+The drone flies oblivious and head-on at the turret so the danger it
+imagines actually materializes. Both methods detect danger, but the WM leads.
 
 ![Drone POV with the live wm_danger vs det_logit trace — the WM signal leads](docs/assets/phantom_lead.gif)
 
-Blue is imagined danger. Orange is the single-frame detector logit. The WM signal
-stays elevated through the closing approach while the detector sits negative until
-the turret enters its ~8 m range.
+Blue is imagined danger. Orange is the danger of the single-frame detector.
+The WM signal stays elevated through the closing approach while the detector 
+sits negative until the turret enters its ~8 m range.
 
-Across 55 phantom episodes, 42/55 (76%) show clean WM-lead separation before
+Across 55 episodes, 42/55 (76%) show clean WM-lead separation before
 danger; max lead ~17 s; best annotated episode (`env5_ep001`) leads by ~11.4 s.
-The WM trace is noisy. The lead timing is the claim, not a clean ramp.
+However, the WM trace is noisy. The lead timing is the claim, not a clean ramp.
 
 ## Result 2 — acting on imagination saves you
 
-A drone flies down a street toward a goal. A turret sits midway on the route,
-visible only down the corridor. Three controllers fly the same head-on approach,
-matched seeds, closed-loop in Isaac Sim.
+A drone flies down a street toward a goal. A turret sits midway on the route.
+Three controllers fly the same head-on approach, matched seeds, closed-loop in Isaac Sim.
 
 ![Top-down trails: oblivious (killed) vs planner (holds back, survives) vs detector (fires late, killed)](docs/assets/nav_a_to_b.gif)
 
@@ -66,7 +65,9 @@ Scope: the planner survives the approach; it does not reach the goal. It holds b
 rather than detour, because a goal-reaching route around the block is one the
 untrained WM cannot find by imagination alone. The claim is the contrast:
 imagination avoids danger entirely where both reacting to detection and ignoring
-detection die.
+detection die. Future work will focus on increasing the planning horizon and improving
+the WM representation to be able to reason to actively pursue the goal while still 
+prioritizing safety.
 
 ## How it works
 
