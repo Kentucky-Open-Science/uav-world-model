@@ -91,6 +91,21 @@ over a localhost socket, with MCAP logged for Foxglove replay.
   goal action with a vision-only flee. It sees the current frame only, so it
   reacts only once the turret is in-frame.
 
+## Data collection and training
+
+The dataset is drone first-person POV collected in simulation: 2015 episodes,
+530,191 frames, 2.39% danger (474 killed, 1541 timeout). Episodes range from
+fixed-path navigation through the city to threat encounters with the turret.
+
+The training objective is for LeWM to imagine the scene ahead: from a few context
+frames and an action sequence, predict the latents a few steps into the future,
+with the action rolled through predicted physics. The imagined latent is trained
+to match the real future latent — not to reconstruct pixels — and SIGreg keeps the
+latent from collapsing.
+
+It trains for 25 epochs on the 530k frames. val `pred_loss` fell 0.0424 → 0.0058
+(−86%), and the latent stayed non-degenerate through training.
+
 ## How to run
 
 Clone with the swm submodule (LeWM, SIGreg, stock CEM planner):
