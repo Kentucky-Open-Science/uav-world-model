@@ -1,0 +1,15 @@
+# UAV+turret synthetic dataset (collected by scripts/collect_uav.py).
+# Bare name resolves against $STABLEWM_HOME/datasets/ — portable across machines.
+# state is kept (state[13] == danger) for downstream danger-head labeling; the
+# LeWM loss itself only uses pixels + action.
+dataset:
+  num_steps: ${eval:'${wm.num_preds} + ${wm.history_size}'}
+  frameskip: 5
+  name: uav_turret_train.lance
+  keys_to_load:
+    - pixels
+    - action
+    - state
+  keys_to_cache:
+    - action
+    - state

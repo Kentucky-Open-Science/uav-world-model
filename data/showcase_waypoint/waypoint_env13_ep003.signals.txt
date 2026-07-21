@@ -1,0 +1,4 @@
+# step wm_danger det_logit danger fire dist_t
+0 nan nan 0 0.0000 8.544
+1 nan nan 0 0.0000 13.455
+2 nan nan 0 0.0000 13.460

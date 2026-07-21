@@ -1,0 +1,42 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.venv/
+venv/
+build/
+dist/
+
+# --- IDE / editor ---
+.idea/
+.vscode/
+.claude/
+*.swp
+
+# --- excluded sibling repos (separate projects, not part of uav-world-model) ---
+repos/le-wm/
+repos/UKy-Campus-LIDAR/
+
+# --- data: episode MCAPs are large + regenerable. Only the six figure-source
+#     MCAPs are tracked (force-added; see README). All .signals.txt / .outcome
+#     text sidecars are kept. Trained weights are not redistributed. ---
+*.mcap
+*.pt
+*.ckpt
+*.h5
+*.safetensors
+# drone-POV critique PNGs under data/ are transient review snapshots, not shipped
+data/**/*.png
+data/**/*.jpg
+
+# --- runtime outputs / logs ---
+output/
+outputs/
+logs/
+*.log
+*.nohup
+
+# --- OS ---
+.DS_Store

@@ -1,0 +1,24 @@
+# UAVTurret3D critique collect — 17 episodes
+# num_envs=6 q=0.4 r=0.3 noise=0.0 seed=0
+# episode                steps outcome       danger_frames type
+episode_004.mcap            97 killed          19 wpturret
+episode_003.mcap           236 killed          19 wpturret
+episode_000.mcap           300 timeout          0 wpturret
+episode_001.mcap           300 timeout          0 drunk
+episode_002.mcap           300 timeout          8 drunk
+episode_005.mcap           300 timeout          0 no_turret
+episode_006.mcap           300 timeout          0 no_turret
+episode_007.mcap           300 timeout          0 no_turret
+episode_008.mcap           300 timeout          0 drunk
+episode_009.mcap           300 timeout          0 wpturret
+episode_010.mcap           300 timeout          0 drunk
+episode_011.mcap           300 timeout          0 no_turret
+episode_015.mcap            48 killed          19 wpturret
+episode_012.mcap           300 timeout          0 no_turret
+episode_013.mcap           300 timeout          0 no_turret
+episode_014.mcap           290 killed          19 wpturret
+episode_016.mcap           300 timeout          0 no_turret
+# total danger frames: 84
+# no_turret danger_frames: 0
+# wpturret  danger_frames: 76
+# drunk     danger_frames: 8

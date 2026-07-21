@@ -1,0 +1,21 @@
+# 3D drone first-person-POV dataset from the Isaac Lab UAVTurret3D env (on the GPU box).
+# Bare name resolves against $STABLEWM_HOME/datasets/ -- portable across machines,
+# same convention as uav.yaml. The 3D env uses the same control DT (0.1 s) as the
+# 2D env (decimation 10, sim.dt 0.01), so frameskip 5 preserves the temporal scale
+# and the existing wm (num_preds/history_size) config carries over unchanged.
+# state is cached for downstream danger-head labeling (state[DANGER_IDX] == danger);
+# the LeWM loss uses pixels + action; the "shot" column (0/1 thrust-override mask)
+# zeros pred_loss on shot/falling windows (Modification 2 -- actions decoupled from
+# physics there, so the WM must not learn flight dynamics from those transitions).
+dataset:
+  num_steps: ${eval:'${wm.num_preds} + ${wm.history_size}'}
+  frameskip: 5
+  name: uav_isaac_train.lance
+  keys_to_load:
+    - pixels
+    - action
+    - state
+    - shot      # 0/1 thrust-override mask; LeWM zeros pred_loss on shot/falling windows (Modification 2)
+  keys_to_cache:
+    - action
+    - state

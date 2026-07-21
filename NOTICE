@@ -1,0 +1,49 @@
+uav-world-model
+Copyright 2026 Evan Damron
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+=========================================================================
+Third-party software
+=========================================================================
+
+This project incorporates or references the following third-party software,
+which is governed by its own license terms (not the Apache-2.0 License above):
+
+1. stable-worldmodel (https://github.com/galilai-group/stable-worldmodel)
+   Referenced as a git submodule at repos/stable-worldmodel/. It is fetched
+   directly from its upstream repository when you run
+   `git submodule update --init`; this project does not redistribute its
+   source. The LeWM world model, the SIGreg predictor, and the stock CEM
+   planner live there. Consult the upstream repository for its license and
+   terms.
+
+2. Isaac Lab — patches/thruster.py
+   Copyright (c) 2022-2026, The Isaac Lab Project Developers
+   (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
+   SPDX-License-Identifier: BSD-3-Clause
+   Derived from Isaac Lab's Thruster class with a local rpm-domain
+   passthrough fix; bind-mounted into the Isaac container at runtime. The
+   BSD-3-Clause copyright notice and license are retained at the top of
+   patches/thruster.py.
+
+3. Isaac Lab / Isaac Sim (NVIDIA)
+   The 3D environment (uav_wm/envs/uav_turret_3d.py) and the multirotor
+   velocity controller are built on the Isaac Lab framework, run inside an
+   Isaac Sim container, and use assets/properties from NVIDIA Isaac. Isaac
+   Lab and Isaac Sim are governed by their own NVIDIA license terms; see
+   https://github.com/isaac-sim/IsaacLab for details.
+
+The project's own source code (uav_wm/, scripts/, patches/, briefs/,
+foxglove/, docs/) is licensed under the Apache License, Version 2.0 (see
+LICENSE), with the exception of patches/thruster.py noted above.
